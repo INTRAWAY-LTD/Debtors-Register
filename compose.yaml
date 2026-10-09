@@ -2,6 +2,8 @@ services:
   oracle:
     image: 'gvenzl/oracle-free:latest'
     environment:
-      - 'ORACLE_PASSWORD=secret'
+      ORACLE_PASSWORD: secret
+      APP_USER: ${APP_USER:-debtors_schema}
+      APP_USER_PASSWORD: ${APP_USER_PASSWORD:-secret}
     ports:
-      - '1521'
+      - '1521:1521'
